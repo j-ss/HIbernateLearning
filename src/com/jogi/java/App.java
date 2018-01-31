@@ -10,10 +10,15 @@ public class App {
     {
        SessionFactory sessionFactory= HibernateUtility.getSessionFactory();
         Session session=null;
+        Transaction transaction=null;
         try{
             session=sessionFactory.openSession();
-            Transaction transaction=session.beginTransaction();
+            transaction=session.beginTransaction();
             Student student=new Student("jogendra","9950362283");
+            Course course=new Course("java",6);
+
+            //student.setCourseId(course);
+            course.setStudent(student);
             session.save(student);
             transaction.commit();
         }catch (Exception e)

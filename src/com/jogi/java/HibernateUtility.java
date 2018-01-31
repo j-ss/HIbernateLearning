@@ -20,6 +20,7 @@ public class HibernateUtility {
         Configuration configuration=new Configuration();
         configuration.configure();
         configuration.addAnnotatedClass(Student.class);
+        configuration.addAnnotatedClass(Course.class);
         sessionFactory=configuration.buildSessionFactory();
 
 

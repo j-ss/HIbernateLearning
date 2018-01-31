@@ -14,6 +14,17 @@ public class Student implements Serializable{
     @Column(name="phone")
     private String phone;
 
+    public Course getCourseId() {
+        return CourseId;
+    }
+
+    public void setCourseId(Course courseId) {
+        this.CourseId = courseId;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CourseId")
+    private Course CourseId;
     Student()
     {
 
